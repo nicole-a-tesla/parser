@@ -1,0 +1,344 @@
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+<html>
+<head>
+<title>Research Center</title>
+<link href="css/ace.css" rel="stylesheet" type="text/css" />
+<link href="css/tables.css" rel="stylesheet" type="text/css" />
+<link href="css/rc.css" rel="stylesheet" type="text/css" />
+<link href="css/dropdowns5.css" rel="stylesheet" type="text/css" />
+<link href="css/menuExpandable.css" rel="stylesheet" type="text/css" />
+<link href="css/audio.css" rel="stylesheet" type="text/css" />
+<link href="css/lomax/jplayer.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/rc.js"></script>
+<script type="text/javascript" src="scripts/menuExpandable.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.jplayer.min.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+	var	my_jPlayer = $("#ace-player");
+	var my_playing = false;
+	var my_paused = false;
+	var my_nowPlaying = "";
+
+	var my_firstTrack = $("a.track").first().attr("href");
+
+	my_jPlayer.jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				mp3:my_firstTrack
+			});
+		},
+		swfPath: "scripts",
+		supplied: "mp3",
+		wmode: "window"
+	});
+
+	$("#jp_container .track").click(function(e) {
+		var trackName = $(this).attr("href");
+		if (my_playing && trackName === my_nowPlaying) {
+			if (!my_paused) {
+				my_jPlayer.jPlayer("pause");
+				my_paused = true;
+				$(this).parent().toggleClass("jp-play jp-pause");
+			}
+			else {
+				my_jPlayer.jPlayer("play");
+				my_paused = false;
+				$(this).parent().toggleClass("jp-play jp-pause");
+			}
+		}
+		else {
+			$(".jp-pause").toggleClass("jp-play jp-pause");
+			my_nowPlaying = trackName;
+			my_jPlayer.jPlayer("setMedia", {
+				mp3:my_nowPlaying
+			});			
+			my_jPlayer.jPlayer("play");
+			my_playing = true;
+			my_paused = false;
+			$(this).parent().toggleClass("jp-play jp-pause");
+		}
+		$(this).blur();
+		return false;
+	});
+
+});
+//]]>
+</script>
+
+</head>
+
+<body body id="section_rc">
+  <!-- nav bar -->
+  <body id="section_rc" onLoad="MM_preloadImages('images/research/sidemenu/1-sound-o.gif','images/research/sidemenu/2-photo-o.gif','images/research/sidemenu/3-video-o.gif','images/research/sidemenu/4-radio-o.gif','images/research/sidemenu/7-geo-o.gif','images/research/sidemenu/5-discuss-o.gif','images/research/sidemenu/6-perform-o.gif','images/research/sidemenu/9-websource-o.gif','images/research/sidemenu/10-credit-o.gif','images/research/sidemenu/11-right-o.gif')">
+<div id="page">
+
+<div align="center">
+<a href="http://www.culturalequity.org/"><img align="center" src="images/banner_rc.jpg" width="950" height="145" border="0" /></a>
+   <ul id="buttonbar" style="width:950;">
+		<li><a href="http://www.culturalequity.org/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1a','','images/buttons/index-o.gif',1)"><img src="images/buttons/index.gif" name="Image1a"  alt="Home" width="114" height="31 " border="0" /></a></li>
+		<li><a href="http://research.culturalequity.org" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2a','','images/buttons/rc-o.gif',1)"><img src="images/buttons/rc.gif" name="Image2a"  alt="Research Center" width="216" height="31" border="0" /></a></li>
+		<li><a href="http://www.culturalequity.org/pubs/ce_pubs_cds_index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3a','','images/buttons/pub-o.gif',1)"><img src="images/buttons/pub.gif" name="Image3a"  alt="Available Publications" width="208" height="31" border="0" /></a> </li>
+		<li><a href="http://www.culturalequity.org/ace/ce_ace_index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4a','','images/buttons/ace-o.gif',1)"><img src="images/buttons/ace.gif" name="Image4a"  alt="Association for Cultural Equity" width="262" height="31" border="0" /></a></li>
+		<li><a href="http://www.culturalequity.org/alanlomax/ce_alanlomax_index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5a','','images/buttons/alan-o.gif',1)"><img src="images/buttons/alan.gif" name="Image5a" alt="Alan Lomax" width="144" height="31" border="0" /></a></li>
+    </ul>
+</div>
+<div>&nbsp;</div>
+  
+  <!-- main content -->
+  <!-- InstanceBegin template="/Templates/rcBodyAudioSearchResults.dwt" codeOutsideHTMLIsLocked="false" -->
+
+
+ 
+
+
+
+
+<div>
+ 
+ 
+   <table class="Mainbody" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top" width="200px"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="top"><img src="images/sidemenu/8-white.gif" width="151" height="18"></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="home-audio.jsp"><img src="images/sidemenu/1-sound-o.gif" name="Image1" width="144" height="23" border="0"></a></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="home-photo.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2','','images/sidemenu/2-photo-o.gif',1)"><img src="images/sidemenu/2-photo.gif" name="Image2" width="144" height="27" border="0"></a></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="http://www.culturalequity.org/rc/videos/video-guide.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','images/sidemenu/3-video-o.gif',1)"><img src="images/sidemenu/3-video.gif" name="Image3" width="144" height="24" border="0"></a></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="home-radio.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','images/sidemenu/4-radio-o.gif',1)"><img src="images/sidemenu/4-radio.gif" name="Image4" width="144" height="24" border="0"></a></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="home-dil.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/sidemenu/5-discuss-o.gif',1)"><img src="images/sidemenu/5-discuss.gif" name="Image8" width="151" height="40" border="0"></a></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="home-psr.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image9','','images/sidemenu/6-perform-o.gif',1)"><img src="images/sidemenu/6-perform.gif" name="Image9" width="151" height="38" border="0"></a></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="http://www.culturalequity.org/lomaxgeo/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','images/sidemenu/7-geo-o.gif',1)"><img src="images/sidemenu/7-geo.gif" name="Image7" width="126" height="26" border="0"></a></td>
+          </tr>
+          <tr>
+            <td valign="top"><a href="cls.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image10a','','images/sidemenu/9-songofearth-0.gif',1)"><img src="images/sidemenu/9-songofearth.gif" name="Image10a" width="130" height="25" border="0"></a></td>
+          </tr>
+		  <tr>
+            <td valign="top"><a href="http://www.culturalequity.org/rc/ce_rc_teaching.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image10b','','images/sidemenu/10-teaching-0.gif',1)"><img src="images/sidemenu/10-teaching.gif" name="Image10b" width="158" height="26" border="0"></a></td>
+          </tr>
+		  <tr>
+            <td valign="top"><a href="http://www.culturalequity.org/alanlomax/ce_alanlomax_people.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image10c','','images/sidemenu/11-profiles-0.gif',1)"><img src="images/sidemenu/11-profiles.gif" name="Image10c" width="99" height="27" border="0"></a></td>
+          </tr>
+		  <tr>
+            <td valign="top"><a href="websources.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image10d','','images/sidemenu/12-webresource-0.gif',1)"><img src="images/sidemenu/12-webresource.gif" name="Image10d" width="127" height="27" border="0"></a></td>
+          </tr>
+        </table>
+
+ 
+ </td>
+      <td class="Bold" valign="top" width="700px"><!-- InstanceBeginEditable name="MainBody" --> 
+
+
+
+
+<table class="pageTable" ><tr><td class="pageResultTD">Page 1 of 4</td><td class="pageNumberTD">[First/Prev] <span class="selectedPage">1</span>, <a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=2" title="Go to page 2">2</a>, <a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=3" title="Go to page 3">3</a>, <a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=4" title="Go to page 4">4</a> [<a class="pageLink" href=/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=2 title="Go to next page">Next</a> <a class="pageLink" href=/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=4 title="Go to last page">Last</a>]</td></tr></table>
+<table id="parent" class="displayTagTable">
+<thead>
+<tr>
+<th class="sortable sorted order1">
+<a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-o=1&amp;d-446288-p=1&amp;d-446288-s=0">Seq#</a></th>
+<th class="sortable">
+<a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-o=2&amp;d-446288-p=1&amp;d-446288-s=1">Recording</a></th>
+<th class="sortable">
+<a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-o=2&amp;d-446288-p=1&amp;d-446288-s=2">Ref#</a></th>
+<th>Media File</th>
+<th class="sortable">
+<a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-o=2&amp;d-446288-p=1&amp;d-446288-s=4">Session</a></th></tr></thead>
+<tbody>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">1</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13022">Commentary by Vera Hall on courtship games and riddles</a></td>
+<td class="displayTagTDCol">T805R01</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R01.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=402&idType=genreId&sortBy=abc">commentary</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">2</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13008">Young Speckled Lady</a></td>
+<td class="displayTagTDCol">T805R02</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R02.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>][<a  href="get-audio-ix.do?ix=recording&id=189&idType=genreId&sortBy=abc">ring play</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">3</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13009">Commentary by Vera Hall on Young Speckled Lady</a></td>
+<td class="displayTagTDCol">T805R03</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R03.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=402&idType=genreId&sortBy=abc">commentary</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">4</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13010">Riding In A Buggy</a></td>
+<td class="displayTagTDCol">T805R04</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R04.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>][<a  href="get-audio-ix.do?ix=recording&id=189&idType=genreId&sortBy=abc">ring play</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">5</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13011">Yes Ma'am / Interview with Vera Hall about Yes Ma'am</a></td>
+<td class="displayTagTDCol">T805R05</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R05.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>][<a  href="get-audio-ix.do?ix=recording&id=101&idType=genreId&sortBy=abc">interview</a>][<a  href="get-audio-ix.do?ix=recording&id=189&idType=genreId&sortBy=abc">ring play</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">6</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13012">Interview with Vera Hall about dance steps and patting</a></td>
+<td class="displayTagTDCol">T805R06</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R06.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=101&idType=genreId&sortBy=abc">interview</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">7</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13013">Ain't Gonna Rain No More (fragment)</a></td>
+<td class="displayTagTDCol">T805R07</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R07.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>][<a  href="get-audio-ix.do?ix=recording&id=189&idType=genreId&sortBy=abc">ring play</a>][<a  href="get-audio-ix.do?ix=recording&id=1229&idType=genreId&sortBy=abc">spiritual</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">8</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13014">Commentary by Vera Hall on Ain't Going To Rain No More</a></td>
+<td class="displayTagTDCol">T805R08</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R08.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=402&idType=genreId&sortBy=abc">commentary</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">9</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13015">Rosie Baby</a></td>
+<td class="displayTagTDCol">T805R09</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R09.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>][<a  href="get-audio-ix.do?ix=recording&id=119&idType=genreId&sortBy=abc">reel</a>][<a  href="get-audio-ix.do?ix=recording&id=189&idType=genreId&sortBy=abc">ring play</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">10</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13016">Commentary by Vera Hall on Rosie Baby and mother</a></td>
+<td class="displayTagTDCol">T805R10</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T805R10.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=402&idType=genreId&sortBy=abc">commentary</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">11</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13017">Railroad Bill (I)</a></td>
+<td class="displayTagTDCol">T806R01</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R01.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=1237&idType=genreId&sortBy=abc">bad man ballad</a>][<a  href="get-audio-ix.do?ix=recording&id=283&idType=genreId&sortBy=abc">ballad</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">12</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13018">Railroad Bill (II)</a></td>
+<td class="displayTagTDCol">T806R02</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R02.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=1237&idType=genreId&sortBy=abc">bad man ballad</a>][<a  href="get-audio-ix.do?ix=recording&id=283&idType=genreId&sortBy=abc">ballad</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">13</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13019">Interview with Vera Hall about Railroad Bill and Stagolee</a></td>
+<td class="displayTagTDCol">T806R03</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R03.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=101&idType=genreId&sortBy=abc">interview</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">15</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13020">Stagolee</a></td>
+<td class="displayTagTDCol">T806R04</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R04.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=1237&idType=genreId&sortBy=abc">bad man ballad</a>][<a  href="get-audio-ix.do?ix=recording&id=283&idType=genreId&sortBy=abc">ballad</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">16</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=13021">Riding In A Buggy (I)</a></td>
+<td class="displayTagTDCol">T806R05</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R05.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=850&idType=genreId&sortBy=abc">dance tune</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>][<a  href="get-audio-ix.do?ix=recording&id=119&idType=genreId&sortBy=abc">reel</a>][<a  href="get-audio-ix.do?ix=recording&id=189&idType=genreId&sortBy=abc">ring play</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">17</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12900">Yes Ma'am (II)</a></td>
+<td class="displayTagTDCol">T806R06</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R06.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>][<a  href="get-audio-ix.do?ix=recording&id=189&idType=genreId&sortBy=abc">ring play</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">18</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12901">Rosie Baby (II)</a></td>
+<td class="displayTagTDCol">T806R07</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R07.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=850&idType=genreId&sortBy=abc">dance tune</a>][<a  href="get-audio-ix.do?ix=recording&id=119&idType=genreId&sortBy=abc">reel</a>][<a  href="get-audio-ix.do?ix=recording&id=1244&idType=genreId&sortBy=abc">slavery song</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">19</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12902">Come Up, Horsey (Go To Sleep And Don't You Cry)</a></td>
+<td class="displayTagTDCol">T806R08</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T806R08.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=55&idType=genreId&sortBy=abc">lullaby</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=23&idType=performerId&sortBy=abc">Unidentified woman</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">20</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12903">I Got A Home In That Rock</a></td>
+<td class="displayTagTDCol">T807R01</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T807R01.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=69&idType=genreId&sortBy=abc">religious song</a>][<a  href="get-audio-ix.do?ix=recording&id=1229&idType=genreId&sortBy=abc">spiritual</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">21</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12904">Commentary by Vera Hall on her mother's songs and her siblings</a></td>
+<td class="displayTagTDCol">T807R02</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T807R02.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=402&idType=genreId&sortBy=abc">commentary</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">22</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12905">All Hid (Is It All Hid?)</a></td>
+<td class="displayTagTDCol">T807R03</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T807R03.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=97&idType=genreId&sortBy=abc">children's song</a>][<a  href="get-audio-ix.do?ix=recording&id=79&idType=genreId&sortBy=abc">game song</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">23</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12906">Commentary by Vera Hall on hide and seek</a></td>
+<td class="displayTagTDCol">T807R04</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T807R04.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=402&idType=genreId&sortBy=abc">commentary</a>][<a  href="get-audio-ix.do?ix=recording&id=383&idType=genreId&sortBy=abc">spoken</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>][<a  href="get-audio-ix.do?ix=recording&id=107&idType=performerId&sortBy=abc">Lomax, Alan</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">24</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12907">What Is The Soul Of Man?</a></td>
+<td class="displayTagTDCol">T808R01</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T808R01.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=69&idType=genreId&sortBy=abc">religious song</a>][<a  href="get-audio-ix.do?ix=recording&id=1229&idType=genreId&sortBy=abc">spiritual</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="even">
+<td class="displayTagTDColWidth10Pct">25</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12908">Mean Old Bedbug Blues</a></td>
+<td class="displayTagTDCol">T808R02</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T808R02.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=343&idType=genreId&sortBy=abc">blues</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td>
+<tr class="odd">
+<td class="displayTagTDColWidth10Pct">26</td>
+<td class="displayTagTDCol"><a  href="get-audio-detailed-recording.do?recordingId=12909">Trouble In Mind (I)</a></td>
+<td class="displayTagTDCol">T808R03</td>
+<td class="displayTagTDCol"><div class="list-player"><div id="jp_container" class="jp-type-single jp-play"><a class="track" href="http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T808R03.mp3"><img src="css/lomax/blank.gif" height="35" width="35"></a></div></div></td>
+<td class="displayTagTDCol">Vera Hall I 1948</td></tr><tr><td colspan="5"><table class="displayTagSubTable"><tr><td class="subtableTH">Genre:</td>  <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=343&idType=genreId&sortBy=abc">blues</a>]</td></tr><tr><td class="subtableTH">Artists:</td> <td class="subtableTD">[<a  href="get-audio-ix.do?ix=recording&id=763&idType=performerId&sortBy=abc">Hall, Vera Ward</a>]</td></tr></table></td></tr><tr><td colspan="5"><img src="images/audio/audio-linebreak-dots.jpg" /></td></tbody></table><table class="pageTable" ><tr><td class="pageResultTD">Page 1 of 4</td><td class="pageNumberTD">[First/Prev] <span class="selectedPage">1</span>, <a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=2" title="Go to page 2">2</a>, <a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=3" title="Go to page 3">3</a>, <a href="/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=4" title="Go to page 4">4</a> [<a class="pageLink" href=/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=2 title="Go to next page">Next</a> <a class="pageLink" href=/rc-b2/audio-ix-recording.jsp;jsessionid=BAE1FFC8B5D08C3E0C6311C7A3CFB1FF?d-446288-p=4 title="Go to last page">Last</a>]</td></tr></table>
+
+
+<!-- InstanceEndEditable --> </td>
+    </tr>
+  </table>
+</div>
+<p align="center" class="clearMe">&nbsp;</p>
+<!-- InstanceEnd -->
+  <!-- footer information -->
+  <div align="right" class="PadRight25">
+	<p>&nbsp;</p>
+<p><strong>&copy; 2001-2009 Association for Cultural Equity</strong> | <a href="http://www.culturalequity.org/contacts/ce_contacts_index.php">Contact</a> | <a href="http://www.culturalequity.org/ace/ce_ace_credits.php">Credits</a> | <a href="http://www.culturalequity.org/ace/ce_ace_rights.php">Rights</a></p>
+
+</div>
+
+  <div id="ace-player" class="jp-jplayer"></div>
+</body>
+
+</html>
