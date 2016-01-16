@@ -4,7 +4,6 @@ class TableRowParser
   attr_reader :title, :url, :artists, :tags
 
   def initialize(row_element_array)
-    # binding.pry
     @title = build_title(row_element_array[1].text.strip())
     @url = parse_for_url(row_element_array[1])
     @artists = parse_for_artists(row_element_array)
