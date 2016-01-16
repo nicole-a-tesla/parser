@@ -22,20 +22,20 @@ class TableRowParser
   def parse_for_tags(row_element_array)
     potential_tag_objects = row_element_array[2].css("td.subtableTD")[0].children
 
-    potential_tag_objects.each_with_object([]) do |obj, tags|
-      maybe_a_tag = obj.children.text
-
-      tags << maybe_a_tag if maybe_a_tag != ""
-    end
+    parse_td_subtables_for_nonempty_strings(potential_tag_objects)
   end
 
   def parse_for_artists(row_element_array)
     potential_artist_objects = row_element_array[2].css("td.subtableTD")[1].children
 
-    potential_artist_objects.each_with_object([]) do |obj, artists|
-      maybe_an_artist = obj.children.text
+    parse_td_subtables_for_nonempty_strings(potential_artist_objects)
+  end
 
-      artists << maybe_an_artist if maybe_an_artist != ""
+  def parse_td_subtables_for_nonempty_strings(collection)
+    collection.each_with_object([]) do |obj, nonempties|
+      maybe_has_content = obj.children.text
+
+      nonempties << maybe_has_content if maybe_has_content != ""
     end
   end
 
