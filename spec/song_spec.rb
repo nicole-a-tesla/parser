@@ -1,11 +1,11 @@
-require_relative "../song_info"
+require_relative "../song"
 
-describe SongInfo do
+describe Song do
   let(:info) { {title:  "title",
                 url:    "url.com",
                 tags:    ["tag1", "tag2"],
                 artists: ["artist1", "artist2"]} }
-  let(:song) { SongInfo.new(info) }
+  let(:song) { Song.new(info) }
 
   describe "title" do
     it "stores and returns correct title" do

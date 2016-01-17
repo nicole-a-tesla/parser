@@ -1,4 +1,4 @@
-class SongInfo
+class Song
   attr_reader :title, :url, :artists, :tags
 
   def initialize(info)
