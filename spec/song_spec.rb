@@ -4,7 +4,7 @@ describe Song do
   let(:info) { {title:  "title",
                 url:    "url.com",
                 tags:    ["tag1", "tag2"],
-                artists: ["Artist, Number One", "Artist Number, Two"]} }
+                artists: ["Artist, Number One", "Artist Number, Two", "Young, Jr., Lonnie"]} }
   let(:song) { Song.new(info) }
 
   describe "title" do
@@ -42,6 +42,16 @@ describe Song do
     it "returns artist last name if they have 1 first name" do
       two_first_names = song.artists[1]
       expect(song.last_name(two_first_names)).to eq "Artist Number"
+    end
+
+    it "returns artist first name if they're a Jr/Sr" do
+      one_first_name = song.artists[2]
+      expect(song.first_name(one_first_name)).to eq "Lonnie"
+    end
+
+    it "returns artist last name if they're a Jr/Sr" do
+      two_first_names = song.artists[2]
+      expect(song.last_name(two_first_names)).to eq "Young Jr."
     end
 
   end

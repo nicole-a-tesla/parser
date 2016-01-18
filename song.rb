@@ -11,11 +11,17 @@ class Song
   end
 
   def first_name(artist_string)
-    artist_string.split(",")[1].strip()
+    artist_string.split(",")[-1].strip()
   end
 
   def last_name(artist_string)
-    artist_string.split(",")[0].strip()
+    names = artist_string.split(",")
+
+    if names.size > 2
+      names.values_at(0..-2).join("")
+    else
+      names[0].strip()
+    end
   end
 
 end
