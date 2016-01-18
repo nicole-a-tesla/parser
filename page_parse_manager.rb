@@ -6,10 +6,6 @@ require_relative "table_row_parser"
 require_relative "page_parser"
 require_relative "song"
 
-
-file = File.open("test/example.html", "rb")
-page_as_string = file.read
-
 class PageParseManager
   attr_reader :rows, :parser, :row_parser, :song, :pages_songs
 
@@ -26,6 +22,7 @@ class PageParseManager
 
   def turn_rows_into_songs
     contains_no_useful_info = rows.pop
+
     rows.each do |row|
       row_parser = @row_parser.new(row)
 
