@@ -6,6 +6,7 @@ class PageParser
   attr_reader :rows, :doc
 
   def initialize(string)
+
     @doc = Nokogiri::HTML(string)
     @rows = get_rows_array(@doc)
   end
