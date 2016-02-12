@@ -1,18 +1,34 @@
 require 'Nokogiri'
 require 'pry'
+require_relative 'collection'
 
 class CollectionParser
-  # input url (?) / text of collection page
-  # each sub-collection has session_title, region, and date
-  # output : navigate through collection, creating new parse_manager for each page_string
-
-  attr_reader :doc, :title, :description, :sessions
+  attr_reader :doc, :title, :description, :sessions, :collection
 
   def initialize(page_string)
     @doc = Nokogiri::HTML(page_string)
     @title = get_title
     @description = get_description
-    @sessions = get_sessions
+    @sessions = get_sessions if collection_has_content
+
+  end
+
+  def collection_has_content
+    doc.css("td.Bold")[0].text.strip != "Upcoming."
+  end
+
+  def collection
+    @collection ||= build_collection
+  end
+
+  def build_collection
+    if collection_has_content
+      info = {title: title,
+              description: description,
+              sessions: sessions}
+      @collection = Collection.new(info)
+    end
+    @collection
   end
 
   def get_title
@@ -36,13 +52,6 @@ class CollectionParser
               url: session_info[0].children[0].attributes["href"].value}
       Session.new(info)
     end
-
   end
 
 end
-
-# Collection: "Mississippi Prison Recordings 1947 and 1948"
-#   Description: "..."
-#   Sessions: title: "Parchman 12/47",
-#             region: "...",
-#             date: "11-x-19xx"

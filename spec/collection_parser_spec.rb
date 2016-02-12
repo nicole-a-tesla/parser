@@ -1,3 +1,4 @@
+require "net/http"
 require_relative '../collection_parser'
 require_relative '../session'
 
@@ -40,6 +41,24 @@ describe CollectionParser do
     it "knows session's url" do
       expect(first_session.url).to eq "http://research.culturalequity.org/get-audio-ix.do?ix=recording&id=10268&idType=sessionId&sortBy=abc"
     end
+  end
+
+  let(:collection) { collection_parser.collection }
+
+  it "builds a collection object" do
+    expect(collection.class).to eq Collection
+  end
+
+  it "transfers title" do
+    expect(collection.title).to eq collection_parser.title
+  end
+
+  it "transfers sessions" do
+    expect(collection.sessions).to eq collection_parser.sessions
+  end
+
+  it "transfers description" do
+    expect(collection.description).to eq collection_parser.description
   end
 
 end

@@ -10,10 +10,11 @@ class PageParseManager
   attr_reader :rows, :parser, :row_parser, :song, :pages_songs
 
   def initialize(args)
-    @row_parser = args[:row_parser] || TableRowParser
-    @song = args[:song] || Song
-    @parser = args[:page_parser].new(args[:page_as_string]) || PageParser.new(args[:page_as_string])
+    @row_parser = TableRowParser
+    @song = Song
+    @parser = PageParser.new(args[:page_as_string])
     @rows = parser.rows
+    turn_rows_into_songs
   end
 
   def pages_songs

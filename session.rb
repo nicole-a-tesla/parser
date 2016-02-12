@@ -1,0 +1,51 @@
+require "nokogiri"
+require "open-uri"
+require "net/http"
+require "pry"
+
+require_relative 'page_parse_manager'
+
+class Session
+  attr_reader :session_title, :region, :date, :url, :songs
+  BASE_URL = "http://research.culturalequity.org/"
+
+  def initialize(info)
+    @session_title = info[:session_title] || "Unknown"
+    @region = info[:region] || "Unknown"
+    @date = info[:date] || "Unknown"
+    @url = BASE_URL + info[:url] if info[:url]
+    @songs = []
+  end
+
+  def parse
+    page_urls = get_all_urls
+
+    page_urls.each do |page_url|
+
+      response = Net::HTTP.get_response(URI.parse(page_url))
+      doc = Nokogiri::HTML(response.body)
+
+      parse_manager = PageParseManager.new({page_as_string: response.body})
+      songs << parse_manager.pages_songs
+    end
+    songs.flatten!
+  end
+
+  def get_all_urls
+    doc = get_nokogiri_HTML_from_url(url)
+    pages_nav_bar = doc.css("td.pageNumberTD")[0]
+
+    p = pages_nav_bar.xpath("a").map do |node|
+      BASE_URL + node["href"] if node.text == node.text.to_i.to_s
+    end.compact!
+
+    p.unshift(@url)
+
+  end
+
+  def get_nokogiri_HTML_from_url(url)
+    response = Net::HTTP.get_response(URI.parse(url))
+    Nokogiri::HTML(response.body)
+  end
+
+end

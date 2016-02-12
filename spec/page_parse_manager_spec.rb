@@ -15,21 +15,24 @@ describe PageParseManager do
                  page_as_string: page_as_string} }
   let(:parse_manager) { PageParseManager.new(args) }
 
-  describe "songs array" do
-    it "starts out empty" do
-      expect(parse_manager.pages_songs).to eq []
-    end
-  end
-
   describe "turns rows into songs" do
     it "fills pages_songs array with one thing per song" do
-      parse_manager.turn_rows_into_songs
       expect(parse_manager.pages_songs.size).to eq 25
     end
 
+    it "each song is unique" do
+      expect(parse_manager.pages_songs.uniq.size).to eq parse_manager.pages_songs.size
+    end
+
+    it "each song title is unique" do
+      songs = parse_manager.pages_songs
+      titles = songs.map { |s| s.title }
+
+      expect(titles.uniq.size).to eq titles.size
+    end
+
      it "fills pages_songs array with Song objects" do
-       parse_manager.turn_rows_into_songs
-       expect(parse_manager.pages_songs[rand(0..25)].class).to eq Song
+       expect(parse_manager.pages_songs[rand(0..24)].class).to eq Song
      end
   end
 end
