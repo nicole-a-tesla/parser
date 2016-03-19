@@ -53,7 +53,8 @@ class CollectionParser
               region: session_info[1].text,
               date: session_info[2].text,
               url: session_info[0].children[0].attributes["href"].value}
-      Session.new(info)
+      # SessionParser.new(info).build_session
+      SessionParser.new(info)
     end
   end
 

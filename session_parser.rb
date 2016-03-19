@@ -5,7 +5,7 @@ require "pry"
 
 require_relative 'page_parse_manager'
 
-class Session
+class SessionParser
   attr_reader :session_title, :collection_title, :region, :date, :url, :songs
   BASE_URL = "http://research.culturalequity.org/"
 
@@ -16,6 +16,10 @@ class Session
     @date = info[:date] || "Unknown"
     @url = BASE_URL + info[:url] if info[:url]
     @songs = []
+  end
+
+  def build_session
+    parse
   end
 
   def parse

@@ -1,6 +1,6 @@
 require "net/http"
 require_relative '../collection_parser'
-require_relative '../session'
+require_relative '../session_parser'
 
 describe CollectionParser do
   file = File.open("test/example_collection.html", "rb")

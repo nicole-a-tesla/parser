@@ -4,7 +4,7 @@ require 'net/http'
 require 'nokogiri'
 
 require_relative "collection_parser"
-require_relative "session"
+require_relative "session_parser"
 
 # take as arg url oc collections page
 # foreach collection:
