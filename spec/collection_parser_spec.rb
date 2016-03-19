@@ -5,7 +5,7 @@ require_relative '../session_parser'
 describe CollectionParser do
   file = File.open("test/example_collection.html", "rb")
   page_as_string = file.read
-  let(:collection_parser) { CollectionParser.new(page_as_string, '/Users/bears8yourface/Documents/lomax2016/') }
+  let(:collection_parser) { CollectionParser.new(page_as_string, '/Users/bears8yourface/Documents/lomax_test/') }
 
   describe "title" do
     it "gets correct title and replaces whitespace" do
@@ -47,7 +47,7 @@ describe CollectionParser do
     end
 
     it "knows parent collection's path" do
-      expect(first_session.parent_collection_path).to eq '/Users/bears8yourface/Documents/lomax2016/Mississippi_Prison_Recordings_1947_and_1948'
+      expect(first_session.parent_collection_path).to eq '/Users/bears8yourface/Documents/lomax_test/Mississippi_Prison_Recordings_1947_and_1948'
     end
   end
 

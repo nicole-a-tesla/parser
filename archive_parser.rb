@@ -22,15 +22,19 @@ require_relative "session_parser"
       # foreach row :
         # write row into a new mp3, plus metadata
 class ArchiveParser
-  attr_reader :collection_urls, :collections
+  attr_reader :collection_urls, :collections, :archive_path
 
   URL = "http://research.culturalequity.org/audio-guide.jsp"
   BASE_URL = "http://research.culturalequity.org/"
-  MOTHER_DIR = '/Users/bears8yourface/Documents/lomax2016/'
+  MOTHER_DIR = '/Users/bears8yourface/Documents/'
+
+  def initialize(archive_directory_name)
+    @archive_path = MOTHER_DIR + "/" + archive_directory_name
+  end
 
   def build_dir
-    FileUtils.mkdir MOTHER_DIR, mode: 0700
-    return MOTHER_DIR
+    FileUtils.mkdir archive_path, mode: 0700
+    return archive_path
   end
 
   def parse
@@ -61,7 +65,7 @@ class ArchiveParser
       response = Net::HTTP.get_response(URI.parse(collection_url))
       page_as_string = response.body
 
-      CollectionParser.new(page_as_string, MOTHER_DIR).build_collection
+      CollectionParser.new(page_as_string, archive_path).build_collection
     end
   end
 

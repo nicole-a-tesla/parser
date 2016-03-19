@@ -6,7 +6,7 @@ describe Collection do
   let(:args) { {title: "This_is_a_title",
             description: "This is a description",
             sessions: [],
-            archive_dir: '/Users/bears8yourface/Documents/lomax2016/'} }
+            archive_dir: '/Users/bears8yourface/Documents/lomax_test/'} }
   let(:collection) { Collection.new(args) }
   let(:description_path) { args[:archive_dir] + args[:title] + '/description.txt' }
 
@@ -47,7 +47,7 @@ describe Collection do
   end
 
   after (:each) do
-    FileUtils.rm_rf("/Users/bears8yourface/Documents/lomax2016/")
+    FileUtils.rm_rf("/Users/bears8yourface/Documents/lomax_test/")
   end
 
 end

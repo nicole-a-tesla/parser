@@ -3,8 +3,8 @@ require 'fileutils'
 require 'pry'
 
 describe ArchiveParser do
-  let(:arch_parser) { ArchiveParser.new }
-  let(:arch_parser_dir) { '/Users/bears8yourface/Documents/lomax2016/' }
+  let(:arch_parser) { ArchiveParser.new('lomax_test') }
+  let(:arch_parser_dir) { '/Users/bears8yourface/Documents/lomax_test/' }
   let(:urls) { [
       "http://research.culturalequity.org/get-audio-ix.do?ix=session&id=CC46&idType=abbrev&sortBy=abc",
       "http://research.culturalequity.org/get-audio-ix.do?ix=session&id=GS46&idType=abbrev&sortBy=abc",
@@ -42,7 +42,7 @@ describe ArchiveParser do
     expect(collections.size).to eq urls.size
   end
 
-  it "builds a lomax folder" do
+  it "builds a folder" do
     arch_parser.build_dir
     expect(Dir.exist?(arch_parser_dir)).to eq true
     FileUtils.rm_rf(arch_parser_dir)
