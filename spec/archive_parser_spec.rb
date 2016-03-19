@@ -4,6 +4,7 @@ require 'pry'
 
 describe ArchiveParser do
   let(:arch_parser) { ArchiveParser.new }
+  let(:arch_parser_dir) { '/Users/bears8yourface/Documents/lomax2016' }
   let(:urls) { [
       "http://research.culturalequity.org/get-audio-ix.do?ix=session&id=CC46&idType=abbrev&sortBy=abc",
       "http://research.culturalequity.org/get-audio-ix.do?ix=session&id=GS46&idType=abbrev&sortBy=abc",
@@ -42,13 +43,8 @@ describe ArchiveParser do
   end
 
   it "builds a lomax folder" do
-    binding.pry
     arch_parser.build_dir
-    expect(Dir.exist?(arch_parser.MOTHER_DIR)).to eq true
-  end
-
-
-  after(:all) do
-    FileUtils.rm_rf('/Users/bears8yourface/Documents/lomax2016')
+    expect(Dir.exist?(arch_parser_dir)).to eq true
+    FileUtils.rm_rf(arch_parser_dir)
   end
 end
