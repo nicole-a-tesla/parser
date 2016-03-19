@@ -6,11 +6,12 @@ require "pry"
 require_relative 'page_parse_manager'
 
 class Session
-  attr_reader :session_title, :region, :date, :url, :songs
+  attr_reader :session_title, :collection_title, :region, :date, :url, :songs
   BASE_URL = "http://research.culturalequity.org/"
 
   def initialize(info)
     @session_title = info[:session_title] || "Unknown"
+    @collection_title = info[:collection_title] || "Unknown Collection"
     @region = info[:region] || "Unknown"
     @date = info[:date] || "Unknown"
     @url = BASE_URL + info[:url] if info[:url]

@@ -48,7 +48,8 @@ class CollectionParser
     sessions = raw_sessions.map do |session|
       session_info = session.css("td")
 
-      info = {session_title: session_info[0].text,
+      info = {collection_title: title,
+              session_title: session_info[0].text,
               region: session_info[1].text,
               date: session_info[2].text,
               url: session_info[0].children[0].attributes["href"].value}

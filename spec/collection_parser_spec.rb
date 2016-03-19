@@ -26,6 +26,10 @@ describe CollectionParser do
 
     let(:first_session) { collection_parser.sessions[0] }
 
+    it "knows session's collection" do
+      expect(first_session.collection_title).to eq collection_parser.title
+    end
+
     it "knows session's title" do
       expect(first_session.session_title).to eq "Parchman 12/47"
     end
