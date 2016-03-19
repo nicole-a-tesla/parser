@@ -38,8 +38,8 @@ describe ArchiveParser do
   end
 
   xit "builds correct # of collection objects" do
-    arch_parser.get_urls_and_build_collections
-    expect(arch_parser.collections.size).to eq urls.size
+    collections = arch_parser.build_collections(urls)
+    expect(collections.size).to eq urls.size
   end
 
   it "builds a lomax folder" do

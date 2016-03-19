@@ -33,6 +33,12 @@ class ArchiveParser
     return MOTHER_DIR
   end
 
+  def parse
+    @collection_urls = get_collection_urls
+    @collections = build_collections(@collection_urls)
+    @collections
+  end
+
   def collection_urls
     @collection_urls || get_collection_urls
   end
@@ -49,20 +55,13 @@ class ArchiveParser
     end
   end
 
-  def build_collections
-    urls = get_collection_urls
+  def build_collections(urls)
     @collections = urls.map do |collection_url|
       response = Net::HTTP.get_response(URI.parse(collection_url))
       page_as_string = response.body
 
       CollectionParser.new(page_as_string).build_collection
     end
-  end
-
-  def get_urls_and_build_collections
-    @collection_urls = get_collection_urls
-    @collections = build_collections(@collection_urls)
-    @collections
   end
 
 end
