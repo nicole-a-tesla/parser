@@ -4,6 +4,7 @@ require "net/http"
 require "pry"
 
 require_relative 'page_parse_manager'
+require_relative 'session'
 
 class SessionParser
   attr_reader :session_title, :collection_title, :region, :date, :url, :songs
@@ -19,10 +20,18 @@ class SessionParser
   end
 
   def build_session
-    parse
+    session_args = {
+      title: session_title,
+      collection_title: collection_title,
+      region: region,
+      date: date,
+      url: url,
+      songs: parse_songs
+    }
+    Session.new(session_args)
   end
 
-  def parse
+  def parse_songs
     page_urls = get_all_urls
 
     page_urls.each do |page_url|
