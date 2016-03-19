@@ -4,7 +4,7 @@ require 'pry'
 
 describe ArchiveParser do
   let(:arch_parser) { ArchiveParser.new }
-  let(:arch_parser_dir) { '/Users/bears8yourface/Documents/lomax2016' }
+  let(:arch_parser_dir) { '/Users/bears8yourface/Documents/lomax2016/' }
   let(:urls) { [
       "http://research.culturalequity.org/get-audio-ix.do?ix=session&id=CC46&idType=abbrev&sortBy=abc",
       "http://research.culturalequity.org/get-audio-ix.do?ix=session&id=GS46&idType=abbrev&sortBy=abc",

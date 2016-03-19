@@ -26,7 +26,7 @@ class ArchiveParser
 
   URL = "http://research.culturalequity.org/audio-guide.jsp"
   BASE_URL = "http://research.culturalequity.org/"
-  MOTHER_DIR = '/Users/bears8yourface/Documents/lomax2016'
+  MOTHER_DIR = '/Users/bears8yourface/Documents/lomax2016/'
 
   def build_dir
     FileUtils.mkdir MOTHER_DIR, mode: 0700
@@ -34,6 +34,7 @@ class ArchiveParser
   end
 
   def parse
+    build_dir
     @collection_urls = get_collection_urls
     @collections = build_collections(@collection_urls)
     @collections
@@ -60,7 +61,7 @@ class ArchiveParser
       response = Net::HTTP.get_response(URI.parse(collection_url))
       page_as_string = response.body
 
-      CollectionParser.new(page_as_string).build_collection
+      CollectionParser.new(page_as_string, MOTHER_DIR).build_collection
     end
   end
 

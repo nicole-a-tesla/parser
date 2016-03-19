@@ -5,7 +5,7 @@ require_relative '../session'
 describe CollectionParser do
   file = File.open("test/example_collection.html", "rb")
   page_as_string = file.read
-  let(:collection_parser) { CollectionParser.new(page_as_string) }
+  let(:collection_parser) { CollectionParser.new(page_as_string, '/Users/bears8yourface/Documents/lomax2016/') }
 
   describe "title" do
     it "gets correct title" do
@@ -49,8 +49,8 @@ describe CollectionParser do
     expect(collection.class).to eq Collection
   end
 
-  it "transfers title" do
-    expect(collection.title).to eq collection_parser.title
+  it "transfers formatted title" do
+    expect(collection.title).to eq collection_parser.title.gsub(/\s/, "_")
   end
 
   it "transfers sessions" do

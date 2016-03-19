@@ -3,9 +3,10 @@ require 'pry'
 require_relative 'collection'
 
 class CollectionParser
-  attr_reader :doc, :title, :description, :sessions, :collection
+  attr_reader :doc, :title, :description, :sessions, :collection, :archive_dir
 
-  def initialize(page_string)
+  def initialize(page_string, archive_dir)
+    @archive_dir = archive_dir
     @doc = Nokogiri::HTML(page_string)
     @title = get_title
     @description = get_description
@@ -25,7 +26,8 @@ class CollectionParser
     if collection_has_content
       info = {title: title,
               description: description,
-              sessions: sessions}
+              sessions: sessions,
+              archive_dir: archive_dir}
       @collection = Collection.new(info)
     end
     @collection
