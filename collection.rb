@@ -10,6 +10,12 @@ class Collection
     @dir = info[:archive_dir] + @title + '/'
   end
 
+  def build_self
+    build_dir
+    description_file = make_description_file[0]
+    write_description_to_file(description_file)
+  end
+
   def build_dir
     FileUtils.mkdir dir, mode: 0700
   end

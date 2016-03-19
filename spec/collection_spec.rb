@@ -45,6 +45,15 @@ describe Collection do
     FileUtils.rm_rf(args[:archive_dir])
   end
 
+  it "build_self does all of the above" do
+    FileUtils.mkdir args[:archive_dir], mode: 0700
+    collection.build_self
+
+    file_text = IO.read(collection.dir + '/description.txt')
+    expect(file_text).to eq args[:description]
+
+    FileUtils.rm_rf(args[:archive_dir])
+  end
 
   after (:all) do
     FileUtils.rm_rf("/Users/bears8yourface/Documents/lomax2016/")
