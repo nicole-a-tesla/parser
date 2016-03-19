@@ -4,7 +4,7 @@ class Collection
   attr_reader :title, :description, :sessions, :dir
 
   def initialize(info)
-    @title = replace_whitespace(info[:title])
+    @title = info[:title]
     @description = info[:description]
     @sessions = info[:sessions]
     @dir = info[:archive_dir] + @title + '/'
@@ -28,10 +28,6 @@ class Collection
     File.open(file_to_write_to, 'w') do |file|
       file.write(description)
     end
-  end
-
-  def replace_whitespace(text)
-    text.gsub(/\s/, "_")
   end
 
 end

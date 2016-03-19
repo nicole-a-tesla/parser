@@ -34,7 +34,12 @@ class CollectionParser
   end
 
   def get_title
-    doc.css("h2.collectionHeader")[0].text
+    title = doc.css("h2.collectionHeader")[0].text
+    replace_whitespace(title, "_")
+  end
+
+  def replace_whitespace(text, replacement)
+    text.gsub(/\s/, replacement)
   end
 
   def get_description
@@ -49,6 +54,7 @@ class CollectionParser
       session_info = session.css("td")
 
       info = {collection_title: title,
+              # parent_collection_path: archive_dir +
               session_title: session_info[0].text,
               region: session_info[1].text,
               date: session_info[2].text,

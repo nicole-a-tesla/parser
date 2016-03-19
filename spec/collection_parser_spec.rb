@@ -8,8 +8,8 @@ describe CollectionParser do
   let(:collection_parser) { CollectionParser.new(page_as_string, '/Users/bears8yourface/Documents/lomax2016/') }
 
   describe "title" do
-    it "gets correct title" do
-      expect(collection_parser.title).to eq "Mississippi Prison Recordings 1947 and 1948"
+    it "gets correct title and replaces whitespace" do
+      expect(collection_parser.title).to eq "Mississippi_Prison_Recordings_1947_and_1948"
     end
   end
 
@@ -44,6 +44,10 @@ describe CollectionParser do
 
     it "knows session's url" do
       expect(first_session.url).to eq "http://research.culturalequity.org/get-audio-ix.do?ix=recording&id=10268&idType=sessionId&sortBy=abc"
+    end
+
+    it "knows parent collection's path" do
+      expect(first_session.parent_collection_path).to eq '/Users/bears8yourface/Documents/lomax2016/Mississippi_Prison_Recordings_1947_and_1948'
     end
   end
 
