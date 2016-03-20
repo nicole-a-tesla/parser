@@ -1,3 +1,4 @@
+require 'pry'
 require "net/http"
 require_relative '../collection_parser'
 require_relative '../session_parser'
@@ -31,7 +32,7 @@ describe CollectionParser do
     end
 
     it "knows session's title" do
-      expect(first_session.title).to eq "Parchman 12/47"
+      expect(first_session.session_title).to eq "Parchman 12/47"
     end
 
     it "knows session's region" do

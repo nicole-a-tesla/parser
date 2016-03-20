@@ -18,7 +18,7 @@ describe SessionParser do
 
   it "builds Session with correct title" do
     session = SessionParser.new(info).build_session
-    expect(session.title).to eq info[:session_title]
+    expect(session.session_title).to eq info[:session_title]
   end
 
   it "builds Session with correct collection_title" do

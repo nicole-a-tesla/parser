@@ -7,12 +7,13 @@ require_relative 'page_parse_manager'
 require_relative 'session'
 
 class SessionParser
-  attr_reader :session_title, :collection_title, :region, :date, :url, :songs
+  attr_reader :session_title, :collection_title, :parent_collection_path, :region, :date, :url, :songs
   BASE_URL = "http://research.culturalequity.org/"
 
   def initialize(info)
     @session_title = info[:session_title] || "Unknown"
-    @collection_title = info[:collection_title] || "Unknown Collection"
+    @collection_title = info[:collection_title] || "Unknown_collection"
+    @parent_collection_path = info[:parent_collection_path]
     @region = info[:region] || "Unknown"
     @date = info[:date] || "Unknown"
     @url = BASE_URL + info[:url] if info[:url]
@@ -21,8 +22,9 @@ class SessionParser
 
   def build_session
     session_args = {
-      title: session_title,
+      session_title: session_title,
       collection_title: collection_title,
+      parent_collection_path: parent_collection_path,
       region: region,
       date: date,
       url: url,

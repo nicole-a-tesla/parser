@@ -54,7 +54,7 @@ class CollectionParser
       session_info = session.css("td")
 
       info = {collection_title: title,
-              # parent_collection_path: archive_dir +
+              parent_collection_path: archive_dir + title,
               session_title: session_info[0].text,
               region: session_info[1].text,
               date: session_info[2].text,
