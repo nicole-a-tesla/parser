@@ -13,8 +13,13 @@ class TableRowParser
   def build_title(row_element_array)
     title_is_here = row_element_array[1]
     title_text = title_is_here.text
-    stripped = title_text.strip()
-    stripped.gsub(/\s/, "_")
+
+    who_knows_what_encoding = title_text.strip()
+    stripped = who_knows_what_encoding.encode("UTF-8", invalid: :replace, undef: :replace)
+
+    final = stripped.gsub(/\s/, "_")
+    puts final 
+    final
   end
 
   def parse_for_url(row_element_array)

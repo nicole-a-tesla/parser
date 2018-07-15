@@ -37,6 +37,8 @@ class SessionParser
     page_urls = get_all_urls
 
     page_urls.each do |page_url|
+      puts ""
+      puts page_url
 
       response = Net::HTTP.get_response(URI.parse(page_url))
       doc = Nokogiri::HTML(response.body)
@@ -51,12 +53,15 @@ class SessionParser
     doc = get_nokogiri_HTML_from_url(url)
     pages_nav_bar = doc.css("td.pageNumberTD")[0]
 
+    if not pages_nav_bar 
+        return [url]
+    end
+
     p = pages_nav_bar.xpath("a").map do |node|
       BASE_URL + node["href"] if node.text == node.text.to_i.to_s
     end.compact!
 
     p.unshift(@url)
-
   end
 
   def get_nokogiri_HTML_from_url(url)

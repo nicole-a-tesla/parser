@@ -11,9 +11,21 @@ class PageParser
   end
 
   def get_rows_array(doc)
-    children_of_tbody = @doc.css("tbody")[0].children
-    table_rows = children_of_tbody.each_slice(3).to_a
-    table_rows
+    collection = @doc.css("tbody")
+    if collection.length 
+        first_thing = collection[0]
+        if first_thing
+            children_of_tbody = first_thing.children
+            table_rows = children_of_tbody.each_slice(3).to_a
+            return table_rows
+        end
+    end
+    puts ""
+    puts "ROWS ARRAY WAS EMPTY! COLLECTION = "
+    puts collection
+    puts ""
+
+    return []
   end
 
 end
