@@ -1,4 +1,4 @@
-require 'Nokogiri'
+require 'nokogiri'
 require 'pry'
 require_relative 'table_row_parser'
 

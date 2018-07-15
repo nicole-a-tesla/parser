@@ -26,7 +26,7 @@ class ArchiveParser
 
   URL = "http://research.culturalequity.org/audio-guide.jsp"
   BASE_URL = "http://research.culturalequity.org/"
-  MOTHER_DIR = '/Users/bears8yourface/Documents/'
+  MOTHER_DIR = '/lomax'
 
   def initialize(archive_directory_name)
     @archive_path = MOTHER_DIR + "/" + archive_directory_name
